@@ -26,6 +26,7 @@ angular.module('staticApp')
 
 	        },
 			start: function() {
+                $scope.markers = [];
 				$scope.uploading = true;
                 $scope.$apply();
 				return true;

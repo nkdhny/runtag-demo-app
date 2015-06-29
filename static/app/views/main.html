@@ -1,7 +1,7 @@
 <div class="drop-zone jumbotron" ng-init="init()">  
   <h1>Demo app</h1>
   <p class="lead">    
-    <img ng-hide="imageName" src="images/0042.png" ng-click="upload($event)" width="100px" class = "drop-zone-image" alt="The Answer to the Ultimate Question of Life, the Universe, and Everything">
+    <img ng-hide="imageName && !(loading || uploading)" src="images/0042.png" ng-click="upload($event)" width="100px" class = "drop-zone-image" alt="The Answer to the Ultimate Question of Life, the Universe, and Everything">
     <div class="result-holder row" ng-hide="loading || uploading">
       <img ng-src="http://api.demo.runtag.ru/img/{{imageName}}" class='result-image'/>
     </div>
