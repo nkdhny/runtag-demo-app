@@ -27,6 +27,7 @@ angular.module('staticApp')
 	        },
 			start: function() {
 				$scope.uploading = true;
+                $scope.$apply();
 				return true;
 			}
 	    });
