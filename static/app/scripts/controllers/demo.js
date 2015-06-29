@@ -9,7 +9,7 @@
  */
 angular.module('staticApp')
   .controller('DemoCtrl', function ($scope, $log, $timeout) {
-
+    $scope.markers = [];
     $scope.init = function() {
     	
 		$log.debug('Loading file upload');
@@ -25,7 +25,7 @@ angular.module('staticApp')
 	            $scope.$apply();
 
 	        },
-			send: function() {
+			start: function() {
 				$scope.uploading = true;
 				return true;
 			}
@@ -45,7 +45,6 @@ angular.module('staticApp')
     };
 
     var drawImage = function(markers) {
-    	$scope.markers = [];
     	angular.element('.marker').remove();
     	var $container = angular.element('.result-holder');
     	var $image = $container.find('img');
