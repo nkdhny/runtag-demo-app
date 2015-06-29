@@ -8,7 +8,7 @@
  * Controller of the staticApp
  */
 angular.module('staticApp')
-  .controller('DemoCtrl', function ($scope, $log, $timeout) {  	  	
+  .controller('DemoCtrl', function ($scope, $log) {
 
     $scope.init = function() {
     	
