@@ -16,6 +16,7 @@ angular.module('staticApp')
 	    angular.element('#fileupload').fileupload({
 	        dataType: 'json',
 	        done: function (e, data) {
+				$scope.uploading = false;
 				$scope.loading = true;
 	            $log.debug(data.result);
 	            $scope.imageName = data.result.name;
@@ -23,7 +24,11 @@ angular.module('staticApp')
 				$scope._markers = data.result.markers;
 	            $scope.$apply();
 
-	        }
+	        },
+			send: function() {
+				$scope.uploading = true;
+				return true;
+			}
 	    });
 
 		angular.element('.result-image').on('load', function() {
