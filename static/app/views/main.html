@@ -2,7 +2,7 @@
   <h1>Demo app</h1>
   <p class="lead">    
     <img ng-hide="imageName" src="images/0042.png" ng-click="upload($event)" width="100px" class = "drop-zone-image" alt="The Answer to the Ultimate Question of Life, the Universe, and Everything">
-    <div class="result-holder row" ng-hide="loading">
+    <div class="result-holder row" ng-hide="loading || uploading">
       <img ng-src="http://api.demo.runtag.ru/img/{{imageName}}" class='result-image'/>
     </div>
     <br>
@@ -22,9 +22,15 @@
 </div>
 
 <div class="row marketing">
+  <h4>Sample images</h4>
+  <p>Here is a real <a href="images/example.jsp" target="_blank">image</a> from "Nike woman 10k" in Moscow,
+    you can begin with detecting markers on it
+  </p>
+  <p>The photo is large (~10Mb) so be patient, upload and download processes will take time.
+    Detection itself takes only few moments, less than a second</p>
   <h4>RunTag Markers</h4>
   <p>
-    Here are several RunTag markers, we have 65k of them
+    You can print several markers and make your own photos. Here are several RunTag markers, we have 65k of them
     <ul>
       <li><a href="images/0042.png">42</a></li>
       <li><a href="images/0043.png">43</a></li>
@@ -48,5 +54,8 @@
     </li>
   </ul>
   </p>
+
+  <h4>Source code</h4>
+  <p>Code of this application available at my <a href="https://github.com/nkdhny/runtag-demo-app">github</a></p>
 
 </div>
