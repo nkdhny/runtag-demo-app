@@ -1,0 +1,50 @@
+<div class="drop-zone jumbotron" ng-init="init()">  
+  <h1>Demo app</h1>
+  <p class="lead">    
+    <img ng-hide="imageName" src="images/0042.png" ng-click="upload($event)" width="100px" class = "drop-zone-image" alt="The Answer to the Ultimate Question of Life, the Universe, and Everything">
+    <div class="result-holder row">
+      <img ng-src="http://127.0.0.1:5000/img/{{imageName}}" class='result-image'/>
+    </div>
+    <br>
+    <p ng-hide="imageName">Drop image here and see how RunTag will find markers</p>
+    <p ng-hide="!imageName || markers.length > 0">Hm...RunTag doesn't detect any markers here</p>
+    <p ng-show="markers.length > 0">
+    Here what RunTag has detected
+    <ul>
+      <li ng-repeat = "m in markers"><strong>{{m}}</strong></li>
+    </ul>
+    </p>
+  </p>
+  <small>Or <a href="#" ng-click="upload($event)">select</a> image</small>
+  <input id="fileupload" class="hidden" type="file" name="image" data-url="http://127.0.0.1:5000/upload">
+</div>
+
+<div class="row marketing">
+  <h4>RunTag Markers</h4>
+  <p>
+    Here are several RunTag markers, we have 65k of them
+    <ul>
+      <li><a href="images/0042.png">42</a></li>
+      <li><a href="images/0043.png">43</a></li>
+      <li><a href="images/0044.png">44</a></li>
+      <li><a href="images/0045.png">45</a></li>
+    </ul>
+  </p>
+
+  <h4>How does it work</h4>
+  <p>
+    Here you can find a <a href="http://prezi.com/4n6stjioymby/?utm_campaign=share&utm_medium=copy" target="_blank">presentation</a> of the RunTag.    
+  </p>
+  <p>
+  We also have video tutorials on how RunTag works with social networks (only with russian subtitles for now)
+  <ul>
+    <li>
+    <a href="http://www.youtube.com/watch?v=CzeYLUYfIg4" target="_blank">Photographer demo</a> shows how to process your photos from facebook or as in video vk.com (Russian "copy" of the fb)
+    </li>
+    <li>
+    <a href="http://www.youtube.com/watch?v=5-O_7sAuu_A" target="_blank">Participant demo</a> shows how we can integrate RunTag detection with event participants database holder
+    </li>
+  </ul>
+  </p>
+
+</div>
