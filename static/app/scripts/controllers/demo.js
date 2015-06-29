@@ -30,7 +30,7 @@ angular.module('staticApp')
 			$log.debug('Image loaded');
 			drawImage($scope._markers);
 			$scope.loading = false;
-		})
+		});
     };
 
     $scope.upload = function($event) {
