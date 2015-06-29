@@ -3,7 +3,7 @@
   <p class="lead">    
     <img ng-hide="imageName" src="images/0042.png" ng-click="upload($event)" width="100px" class = "drop-zone-image" alt="The Answer to the Ultimate Question of Life, the Universe, and Everything">
     <div class="result-holder row">
-      <img ng-src="http://127.0.0.1:5000/img/{{imageName}}" class='result-image'/>
+      <img ng-src="http://api.demo.runtag.ru/img/{{imageName}}" class='result-image'/>
     </div>
     <br>
     <p ng-hide="imageName">Drop image here and see how RunTag will find markers</p>
@@ -16,7 +16,7 @@
     </p>
   </p>
   <small>Or <a href="#" ng-click="upload($event)">select</a> image</small>
-  <input id="fileupload" class="hidden" type="file" name="image" data-url="http://127.0.0.1:5000/upload">
+  <input id="fileupload" class="hidden" type="file" name="image" data-url="http://api.demo.runtag.ru/detect">
 </div>
 
 <div class="row marketing">
