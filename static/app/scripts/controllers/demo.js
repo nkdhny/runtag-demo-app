@@ -8,7 +8,7 @@
  * Controller of the staticApp
  */
 angular.module('staticApp')
-  .controller('DemoCtrl', function ($scope, $log) {
+  .controller('DemoCtrl', function ($scope, $log, $timeout) {
 
     $scope.init = function() {
     	
@@ -28,7 +28,7 @@ angular.module('staticApp')
 
 		angular.element('.result-image').on('load', function() {
 			$log.debug('Image loaded');
-			drawImage($scope._markers);
+			$timeout(function() {drawImage($scope._markers);}, 300);
 			$scope.loading = false;
 			$scope.$apply();
 		});
