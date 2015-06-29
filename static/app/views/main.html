@@ -2,10 +2,11 @@
   <h1>Demo app</h1>
   <p class="lead">    
     <img ng-hide="imageName" src="images/0042.png" ng-click="upload($event)" width="100px" class = "drop-zone-image" alt="The Answer to the Ultimate Question of Life, the Universe, and Everything">
-    <div class="result-holder row">
+    <div class="result-holder row" ng-hide="loading">
       <img ng-src="http://api.demo.runtag.ru/img/{{imageName}}" class='result-image'/>
     </div>
     <br>
+    <p ng-show="loading">Loading image...</p>
     <p ng-hide="imageName">Drop image here and see how RunTag will find markers</p>
     <p ng-hide="!imageName || markers.length > 0">Hm...RunTag doesn't detect any markers here</p>
     <p ng-show="markers.length > 0">

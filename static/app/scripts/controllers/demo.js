@@ -15,15 +15,22 @@ angular.module('staticApp')
 		$log.debug('Loading file upload');
 	    angular.element('#fileupload').fileupload({
 	        dataType: 'json',
-	        done: function (e, data) {	            
+	        done: function (e, data) {
+				$scope.loading = true;
 	            $log.debug(data.result);
 	            $scope.imageName = data.result.name;
 	            $log.debug('Uploaded ' + $scope.imageName);
-	            $timeout(function() {drawImage(data.result.markers);}, 300);	            
+				$scope._markers = data.result.markers;
 	            $scope.$apply();
 
 	        }
-	    });				
+	    });
+
+		angular.element('.result-image').on('load', function() {
+			$log.debug('Image loaded');
+			drawImage($scope._markers);
+			$scope.loading = false;
+		})
     };
 
     $scope.upload = function($event) {
