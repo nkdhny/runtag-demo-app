@@ -16,8 +16,8 @@ def format_marker(img, m):
     mx1, my1 = m[1][0]
     mx3, my3 = m[1][2]
 
-    mw = mx3 - mx1
-    mh = my3 - my1
+    mw = abs(mx3 - mx1)
+    mh = abs(my3 - my1)
 
     return {
         'id': m[0],
