@@ -19,10 +19,13 @@ def format_marker(img, m):
     mw = abs(mx3 - mx1)
     mh = abs(my3 - my1)
 
+    mx = min(mx1, mx3)
+    my = min(my1, my3)
+
     return {
         'id': m[0],
-        'left': mx1/width,
-        'top': my1/height,
+        'left': mx/width,
+        'top': my/height,
         'width': mw/width,
         'height': mh/height
     }
