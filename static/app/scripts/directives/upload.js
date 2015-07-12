@@ -1,3 +1,4 @@
+'use strict';
 angular.module('staticApp')
   .directive('ngFileUpload', function ($log) {
     return {
@@ -25,5 +26,5 @@ angular.module('staticApp')
 			}
 		});
       }
-    }
+    };
 });
