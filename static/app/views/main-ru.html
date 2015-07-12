@@ -1,0 +1,77 @@
+<div class="drop-zone jumbotron" ng-init="init()">  
+  <h1>Демо приложение</h1>
+  <p class="lead">    
+    <img ng-hide="imageName && !(loading || uploading)" src="images/0042.png" ng-click="upload($event)" width="100px" class = "drop-zone-image" alt="The Answer to the Ultimate Question of Life, the Universe, and Everything">
+    <div class="result-holder row" ng-hide="loading || uploading">
+      <img ng-src="http://api.demo.runtag.ru/img/{{imageName}}" class='result-image'/>
+    </div>
+    <br>
+    <p ng-show="loading">Скачиваем обратно...</p>
+    <p ng-show="uploading">Закачиваем на сервер...</p>
+    <p ng-hide="imageName">Бросьте сюда фото и RunTag найдет маркеры на нём</p>
+    <p ng-hide="!imageName || markers.length > 0 ||  loading || uploading">Похоже, что RunTag не нашел маркеров на этом изображении</p>
+    <p ng-show="markers.length > 0">
+    Вот что RunTag нашел на этом изображении
+    <ul>
+      <li ng-repeat = "m in markers"><strong>{{m}}</strong></li>
+    </ul>
+    </p>
+  </p>
+  <small ng-show="!imageName">Или <a href="#" ng-click="upload($event)">выберете</a> изображение</small>
+  <small ng-hide="!imageName"><a href="#" ng-click="upload($event)">Выбрать</a> другое изображение</small>
+  <input data-ng-file-upload class="hidden" type="file" name="image" data-url="http://api.demo.runtag.ru/detect">
+</div>
+
+<div class="row marketing">
+  <h4>Примеры изображений</h4>
+  <p>Скачайте публично доступное <a href="https://pp.vk.me/c543108/v543108748/6224/9fzeQIwgCHI.jpg" target="_blank">изображение</a> с забега "Nike woman 10k" в Мосвке,
+    и посмотрите, как RunTag с ним справится.
+  </p>
+  <p>Загрузка изображения на сервер и обратное скачивание занимают некоторое время, сам процесс детектирование занимает несколько мгновений.</p>
+  <h4>Маркеры RunTag</h4>
+  <p>
+    Ниже представлены несколько маркеров RunTag, всего у нас есть 65 тысяч таких
+    <ul>
+      <li><a href="images/0042.png">42</a></li>
+      <li><a href="images/1542.png">1542</a></li>
+      <li><a href="images/8242.png">8242</a></li>
+    </ul>
+    Вы можете напечатать их и проверить как RunTag будет справляться с вашими снимками.
+  </p>
+
+  <h4>Мобильное приложение</h4>
+  <p>
+    Мобильное приложение для Android версии 4.4+ доступно <a href="http://app.demo.runtag.ru/android.apk">тут</a> (только английская версия на данный момент).
+    Для его установки необходимо разрешить "Непроверенные источники" в настройках устройства
+    (подробности см. например <a href="http://www.cnet.com/how-to/how-to-install-apps-outside-of-google-play/">в этой</a> статье)<br>
+    Приложение работает в две фазы
+    <ul>
+      <li>сначала, оно детектирует объекты похожие на маркеры (на устройстве)</li>
+      <li>затем, отправляет кандидатов на сервер для дальнейшего анализа</li>
+    </ul>
+    Обычно это занимает около нескольких микросекунд и требует около 1Kb сетевого трафика на изображение.
+  </p>
+  <p>
+    Важно заметить, что процесс детектирования очень чувствителен к качеству снимков, желательно использовать устройства с разрешением камеры юолее 10Mpx.
+  </p>
+
+  <h4>Как работает RunTag</h4>
+  <p>
+    Подробное описание принципов работы и ограничений детектирования RunTag вы найдете в <a href="http://prezi.com/4n6stjioymby/?utm_campaign=share&utm_medium=copy" target="_blank">презентации</a>.
+  </p>
+  <p>
+  Кроме того, доступны демо-видео показывающие возможный сценарий взаимодействия RunTag с инфраструктурой организатора
+  <ul>
+    <li>
+    <a href="http://www.youtube.com/watch?v=CzeYLUYfIg4" target="_blank">Демо фотографа</a> показывает как распознать участников на снимках, доступных в публичных источниках (facebook, вконтакте и т.д.)
+    </li>
+    <li>
+    <a href="http://www.youtube.com/watch?v=5-O_7sAuu_A" target="_blank">Демо участника</a> демонстрирует возможности по интегрированию RunTag с личным кабинетом организатора
+    </li>
+  </ul>
+  </p>
+
+  <h4>Исходный код</h4>
+  <p>Исходный код этой страницы (включая API детектирования) доступен в моем <a href="https://github.com/nkdhny/runtag-demo-app" target="_blank">github-е</a></p>
+
+</div>

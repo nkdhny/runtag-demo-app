@@ -11,39 +11,24 @@ angular.module('staticApp')
   .controller('DemoCtrl', function ($scope, $log, $timeout) {
     $scope.markers = [];
     $scope.init = function() {
-    	
-		$log.debug('Loading file upload');
-	    angular.element('#fileupload').fileupload({
-	        dataType: 'json',
-	        done: function (e, data) {
-				$scope.uploading = false;
-				$scope.loading = true;
-	            $log.debug(data.result);
-	            $scope.imageName = data.result.name;
-	            $log.debug('Uploaded ' + $scope.imageName);
-				$scope._markers = data.result.markers;
-	            $scope.$apply();
 
-	        },
-			start: function() {
-                $scope.markers = [];
-				$scope.uploading = true;
-                $scope.$apply();
-				return true;
-			}
-	    });
 
-		angular.element('.result-image').on('load', function() {
+
+
+		angular.element('.result-image').on('load', function () {
 			$log.debug('Image loaded');
-			$timeout(function() {drawImage($scope._markers);}, 300);
+			$timeout(function () {
+				drawImage($scope._markers);
+			}, 300);
 			$scope.loading = false;
 			$scope.$apply();
 		});
+
     };
 
     $scope.upload = function($event) {
     	$event.preventDefault();
-    	angular.element('#fileupload').click();
+    	angular.element('input').click();
     };
 
     var drawImage = function(markers) {

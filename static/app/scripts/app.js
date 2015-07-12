@@ -13,5 +13,26 @@ angular
     'ngAnimate',
     'ngCookies',
     'ngSanitize',
-    'ngTouch'
-  ]);
+    'ngTouch',
+    'ngRoute'
+  ]).config (function ($routeProvider) {
+  $routeProvider.when(
+    '/', {
+      templateUrl: 'views/main-en.html',
+      controller: 'DemoCtrl'
+    }
+  ).when(
+      '/en', {
+        templateUrl: 'views/main-en.html',
+        controller: 'DemoCtrl'
+      }
+  ).when(
+      '/ru', {
+        templateUrl: 'views/main-ru.html',
+        controller: 'DemoCtrl'
+      }
+  )
+  .otherwise({
+    redirectTo: '/'
+  });
+});
